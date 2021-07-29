@@ -6,8 +6,12 @@ function patch() {
 
     if [ -z "$input" ]
     then
-        echo $input
-        echo $output
+        echo "Usage: z3r input_path output_path"
+        return
+    fi
+
+    if [ -z "$output" ]
+    then
         cp $input $output
     else
         output=$input

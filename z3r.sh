@@ -17,7 +17,12 @@ function patch() {
         output=$input
     fi
 
-    asar --no-title-check LTTP_RND_GeneralBugfixes.asm $output
+    # Absolute path to this script, e.g. /home/user/bin/foo.sh
+    local script=$(greadlink -f "$0")
+    # Absolute path this script is in, thus /home/user/bin
+    script_path=$(dirname "$script")
+
+    asar --no-title-check "${script_path}/LTTP_RND_GeneralBugfixes.asm" $output
 }
 
 patch $1 $2

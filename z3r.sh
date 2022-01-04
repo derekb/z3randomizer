@@ -12,9 +12,11 @@ function patch() {
 
     if [ -z "$output" ]
     then
-        cp $input $output
-    else
         output=$input
+        echo "Writing $input as $output"
+    else
+        echo "Copying $input => $output"
+        cp $input $output
     fi
 
     # Absolute path to this script, e.g. /home/user/bin/foo.sh

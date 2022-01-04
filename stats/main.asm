@@ -6,10 +6,10 @@ lorom
 !BGE = "BCS"
 
 org $238000
-incsrc stats/creditsnew.asm
+incsrc ./creditsnew.asm
 
 FontGfx:
-incbin stats/font.gb
+incbin ./font.gb
 FontGfxEnd:
 
 ; Custom addresses. Most are arbitrary. Feel free to make sure they're okay or moving them elsewhere within ZP
@@ -629,10 +629,10 @@ DrawEndingItems:
 RTS
 
 FontTable:
-    incbin stats/fonttable.bin
+    incbin ./fonttable.bin
 
 CreditsStats:
-incsrc stats/statConfig.asm
+incsrc ./statConfig.asm
 dw $FFFF
 
 org $0eedd9

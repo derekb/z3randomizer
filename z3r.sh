@@ -6,16 +6,19 @@ function patch() {
 
     if [ -z "$input" ]
     then
-        echo "Usage: z3r input_path output_path"
+        echo "Usage: z3r <input_path> [new_output_path]"
+        return
+    fi
+
+    if [ ! -f "$input" ]; then
+        echo "$input does not exist."
         return
     fi
 
     if [ -z "$output" ]
     then
         output=$input
-        echo "Writing $input as $output"
     else
-        echo "Copying $input => $output"
         cp $input $output
     fi
 
